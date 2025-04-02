@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+  }
+  
+  h2 {
+    color: green;
+  }
+
+  form {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  input[type="submit"] {
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  input[type="submit"]:hover {
+    background: darkgreen;
+  }
+</style>
+
+<script>
+function validateForm() {
+  let name = document.forms["myForm"]["fname"].value.trim();
+  let password = document.forms["myForm"]["password"].value.trim();
+  let branch = document.forms["myForm"]["branch"].value.trim();
+  
+  if (name === "") {
+    alert("Name must be filled out");
+    return false;
+  }
+  if (password.length < 6) {
+    alert("Password must be at least 6 characters");
+    return false;
+  }
+  if (branch === "") {
+    alert("Branch must be filled out");
+    return false;
+  }
+  
+  alert("Form has been submitted successfully!");
+  return true; // Allow the form to submit after validation
+}
+</script>
+</head>
+<body>
+
+<h2>JavaScript Validation</h2>
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+  <label>Name:</label>
+  <input type="text" name="fname"><br><br>
+  
+  <label>Password:</label>
+  <input type="password" name="password"><br><br>
+  
+  <label>Branch:</label>
+  <input type="text" name="branch"><br><br>
+  
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
