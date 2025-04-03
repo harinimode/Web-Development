@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Travel Web Page</title>
+    <link rel="stylesheet" href="travel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <a href="#" class="travel">Travel</a>
+        <div class="menu"></div>
+        <div class="navig">
+            <div class="items">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Explore</a>
+                <a href="#">Help Us</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="Home">
+        <video class="video-slide" src="1.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="3.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="4.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="5.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="1.mp4" autoplay muted loop></video>
+        <div class="content">
+            <h1>
+                Maldives<br><span>Island</span> 
+            </h1>
+            <h2>Why Visit the Maldives?</h2>
+            <p>🌴🏝️ Luxury Resorts & Overwater Bungalows</p>  
+            <p>🤿🐠 World-Class Scuba Diving & Snorkeling</p>  
+            <p>✨🌊 Bioluminescent Beaches (Glowing Plankton)</p>  
+            <p>💑❤️ Secluded Romantic Getaways & Beautiful Destination</p>  
+            <p>🌊🚤 Exciting Water Sports (Jet Skiing, Surfing, Parasailing)</p>  
+            <a href="#">Read More</a>
+        </div>
+            <div class="icon">
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>   
+                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a> 
+                <a href="https://web.whatsapp.com/" target="_blank"><i class="fab fa-whatsapp"></i></a> 
+
+            </div>
+            
+        </div>
+
+        <div class="slider">
+            <div class="nav active"></div>          
+            <div class="nav"></div> 
+            <div class="nav"></div> 
+            <div class="nav"></div> 
+            <div class="nav"></div> 
+        </div>
+
+    </section>
+
+
+    <section id="hotel-list" class="hidden">
+        <h2>Available Hotels in the Maldives</h2>
+        <div class="hotels">
+            <div class="hotel-card">
+                <img src="hotel1.jpg" alt="Luxury Resort">
+                <h3>Luxury Resort & Spa</h3>
+                <p>Price: $450 per night</p>
+            </div>
+            <div class="hotel-card">
+                <img src="hotel2.jpg" alt="Overwater Bungalow">
+                <h3>Overwater Bungalow</h3>
+                <p>Price: $600 per night</p>
+            </div>
+            <div class="hotel-card">
+                <img src="hotel3.jpg" alt="Beachfront Villa">
+                <h3>Beachfront Villa</h3>
+                <p>Price: $350 per night</p>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <script type="text/javascript">
+        const menu = document.querySelector(".menu");
+const navig = document.querySelector(".navig");
+
+
+// Toggle menu visibility
+menu.addEventListener("click", () => {
+    menu.classList.toggle("active");
+    navig.classList.toggle("active");
+});
+
+const btns = document.querySelectorAll(".nav");
+const slides = document.querySelectorAll(".video-slide");
+// Function to switch videos
+var slidernav=function(manual) {
+    btns.forEach((btn) => {btn.classList.remove("active")
+});
+    slides.forEach((slide) => {slide.classList.remove("active")
+});
+
+    btns[manual].classList.add("active");
+    slides[manual].classList.add("active");
+
+}
+// Attach click event to each button
+btns.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+        slidernav(i);
+    });
+});
+
+const readMoreBtn = document.querySelector(".content a");
+const hotelList = document.getElementById("hotel-list");
+
+readMoreBtn.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent default link behavior
+    hotelList.classList.toggle("hidden");
+});
+    </script>
+</body>
+</html>
